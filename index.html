@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella Coffee</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="/" class="logo">UMBRELLA</a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link active">ГЛАВНАЯ</a></li>
+                    <li class="nav__item has-dropdown">
+                        <a href="catalog.html" class="nav__link">МЕНЮ</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="catalog.html#coffee">Кофе</a></li>
+                            <li><a href="catalog.html#tea">Чай</a></li>
+                            <li><a href="catalog.html#desserts">Десерты</a></li>
+                            <li><a href="catalog.html#breakfasts">Завтраки</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="delivery.html" class="nav__link">ДОСТАВКА</a></li>
+                </ul>
+                
+                <div class="mobile-actions">
+                    <button class="search-btn mobile-search">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    
+                    
+                    <button class="login-btn mobile-login">ВОЙТИ</button>
+                </div>
+            </nav>
+            
+            <div class="desktop-actions">
+                <button class="search-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                
+                
+                <button class="login-btn">ВОЙТИ</button>
+                
+                <button class="burger" aria-label="Menu">
+                    <span class="burger__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero animate-hero">
+            <div class="container hero__container">
+                <div class="hero-left">
+                    <p class="hero-right-top">Приготовлено с душой</p>
+                    <h1 class="animate-text">Дагестанский кофе</h1>
+                    <p class="animate-text-delay">Изысканный кофе, вкуснейшие завтраки,<br> приготовленные с любовью - всё это про <br> Umbrella, про лучшее кафе на северном кавказе</p>
+                    <div class="hero-btn">
+                        <a href="catalog.html" class="hero-btn-catalog animate-button">МЕНЮ</a>
+                        <a href="catalog.html" class="hero-btn-za animate-button-delay">ЗАКАЗАТЬ</a>
+                    </div>
+                </div>
+                <img class="hero-right" src="img/header/сссс.png" alt="back">
+            </div>
+        </section>
+        
+        <div class="yellow-line">
+        </div>
+           <section class="category animate-section">
+            <div class="container">
+                <h2 class="animate-text">Наши популярные категории</h2>
+                <div class="section-link">
+                    <a href="catalog.html">Посмотреть меню</a>
+                </div>
+                <div class="category__grid">
+                    <a href="catalog.html" class="category_item">
+                        <div class="category_inner animate-card">
+                            <img src="img/Products/image-2.png" alt="Завтраки">
+                            <div class="category_card-text">КОФЕ</div>
+                        </div>
+                    </a>
+                    <a href="catalog.html" class="category_item">
+                        <div class="category_inner animate-card">
+                            <img src="img/Products/image-1.png" alt="Кофе">
+                            <div class="category_card-text">ЗАВТРАКИ</div>
+                        </div>
+                    </a>
+                    <a href="catalog.html" class="category_item">
+                        <div class="category_inner animate-card">
+                            <img src="img/Products/image.png" alt="Десерты">
+                            <div class="category_card-text">ДЕСЕРТЫ</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="product-section animate-section">
+            <div class="container">
+                <h2 class="animate-text">Идеально для летнего сезона</h2>
+                <p class="product-section__subtitle">На самые популярные позиции при первом заказе действует скидка</p>
+                
+                <div class="product-grid">
+                    <!-- Карточка товара 1 -->
+                    <div class="product-card">
+                        <img class="product-card__image" src="img/Products/2.png" alt="ЧОКО БОМ">
+                        <div class="product-card__content">
+                            <span class="product-card__category">Cold</span>
+                            <h3 class="product-card__title">ЧОКО БОМ</h3>
+                            <span class="product-card__price">₽ 220</span>
+                            <button class="product-card__btn btn" 
+                                    data-product-id="1" 
+                                    onclick="cart.addItem('1'); return false;">
+                                В КОРЗИНУ
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Остальные карточки товаров -->
+                    <div class="product-card">
+                        <img class="product-card__image" src="img/Products/1.png" alt="ЧОКО БОМ">
+                        <div class="product-card__content">
+                            <span class="product-card__category">Cold</span>
+                            <h3 class="product-card__title">ЧОКО БОМ</h3>
+                            <span class="product-card__price">₽ 220</span>
+                             <button class="product-card__btn btn" 
+                                    data-product-id="2" 
+                                    onclick="cart.addItem('2'); return false;">
+                                В КОРЗИНУ
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img class="product-card__image" src="img/Products/3.png" alt="ЧОКО БОМ">
+                        <div class="product-card__content">
+                            <span class="product-card__category">Hot</span>
+                            <h3 class="product-card__title">ЧОКО БОМ</h3>
+                            <span class="product-card__price">₽ 220</span>
+                           <button class="product-card__btn btn" 
+                                data-product-id="3" 
+                                onclick="cart.addItem('3'); return false;">
+                            В КОРЗИНУ
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <img class="product-card__image" src="img/Products/4.png" alt="ЧОКО БОМ">
+                        <div class="product-card__content">
+                            <span class="product-card__category">Cold</span>
+                            <h3 class="product-card__title">ЧОКО БОМ</h3>
+                            <span class="product-card__price">₽ 220</span>
+                            <button class="product-card__btn btn" 
+                                    data-product-id="4" 
+                                    onclick="cart.addItem('4'); return false;">
+                                В КОРЗИНУ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="create-line">
+        </div>
+        <section class="about-section animate-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="about-title ">О НАС</h2>
+                    <h2 class="about-accent">Наше кафе <br> <span>приоритет</span> качества<br></h2>
+                    <p class="about-text">
+                      Здесь аромат свежесваренного кофе смешивается с теплом кавказского гостеприимства. Мы готовим с душой, вдохновляясь местными традициями: от пряных блюд до нежных десертов. 
+                    </p>
+                    <div class="about-signature">
+                        <p class="about-signature-text">ПРО ФРАНШИЗУ</p>
+                        <h3 class="about-logo">UMBRELLA<br>COFFEE</h3>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="./img/about/back-about.jpg" alt="о нас" class="about-img">
+                </div>
+            </div>
+        </section>
+     <div class="marquee-section" id="marquee1">
+        <div class="marquee-track">
+            <div class="marquee-content"></div>
+        </div>
+    </div>
+
+        <section class="partners-section  animate-section">
+            <div class="container">
+                <div class="partners-header">
+                    <h2 class="animate-text">Наши партнеры</h2>
+                    <p class="section-subtitle">Благодаря которым мы открыли заведения по всей республике</p>
+                </div>
+
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <img src="./img/about/12.png" alt="Umbrella x ZM Coffee">
+                        <div class="partner-info">
+                            <h3 class="partner-name">Umbrella x ZM Coffee</h3>
+                            <p class="partner-location">Республика Дагестан, Каспийск</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                        <img src="./img/about/13.png" alt="Umbrella x Robusta">
+                        <div class="partner-info">
+                            <h3 class="partner-name">Umbrella x Robusta</h3>
+                            <p class="partner-location">Республика Дагестан, Махачкала</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-card">
+                            <img src="./img/about/14.png" alt="Umbrella x Cited">
+                        <div class="partner-info">
+                            <h3 class="partner-name">Umbrella x Ched</h3>
+                            <p class="partner-location">Республика Дагестан, Дербент</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="create-line" style="margin-bottom: 50px;">
+        </div>
+      <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="blog-title ">Из нашего блога</h2>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Telegram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFD21D">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.534.26l.213-3.05 5.56-5.02c.24-.213-.054-.334-.373-.12l-6.87 4.33-2.96-.92c-.64-.203-.658-.64.135-.954l11.57-4.46c.53-.196 1.002.13.832.94z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFD21D">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="VK">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFD21D">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.344 16.163h-1.867c-.552 0-.72-.447-1.68-1.447-.847-.877-1.229-.932-1.449-.932-.362 0-.465.102-.465.593v1.498c0 .422-.135.678-1.248.678-1.823 0-3.74-1.077-5.144-3.073-1.584-2.165-2.238-3.793-2.238-4.26 0-.204.102-.407.407-.407h1.869c.305 0 .457.153.558.508.678 2.119 1.793 3.996 2.553 3.996.203 0 .305-.102.305-.661v-2.644c-.068-1.186-.695-1.287-.695-1.696 0-.204.204-.407.407-.407h2.975c.339 0 .508.204.508.593v3.301c0 .373.169.508.271.508.203 0 .373-.102.678-.406 1.017-1.186 1.763-3.008 1.763-3.008.102-.204.254-.407.559-.407h1.868c.407 0 .508.204.407.661-.204 1.017-2.197 3.772-2.197 3.772-.153.254-.22.406 0 .661.102.153.407.153.661.254.373.102.593.254.864.457.271.203.373.305.475.509.102.203.102.458-.068.661-.22.305-.593.508-1.017.813-.847.593-1.793 1.017-2.553 1.322-.678.254-1.017.22-1.017.661v.813c0 .423-.339.661-.847.661z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Статья 1 -->
+                <article class="blog-card">
+                    <div class="blog-card__image">
+                        <img src="./img/about/15.png" alt="Как готовить кофе, чтобы он не был горьким?">
+                    </div>
+                    <div class="blog-card__content">
+                        <h3 class="blog-card__title">Как готовить кофе, чтобы он не был горьким?</h3>
+                        <a href="#" class="blog-card__link">ЧИТАТЬ БОЛЬШЕ</a>
+                    </div>
+                </article>
+                
+                <!-- Статья 2 -->
+                <article class="blog-card">
+                    <div class="blog-card__image">
+                        <img src="./img/about/16.png" alt="Все тонкости работы барменом">
+                    </div>
+                    <div class="blog-card__content">
+                        <h3 class="blog-card__title">Все тонкости работы барменом</h3>
+                        <a href="#" class="blog-card__link">ЧИТАТЬ БОЛЬШЕ</a>
+                    </div>
+                </article>
+                
+                <!-- Статья 3 -->
+                <article class="blog-card">
+                    <div class="blog-card__image">
+                        <img src="./img/about/17.png" alt="Можно ли открыть франшизу по Umbrella?">
+                    </div>
+                    <div class="blog-card__content">
+                        <h3 class="blog-card__title">Можно ли открыть франшизу по Umbrella?</h3>
+                        <a href="#" class="blog-card__link">ЧИТАТЬ БОЛЬШЕ</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+    </section>
+        <div class="marquee-section" id="marquee2">
+            <div class="marquee-track">
+                <div class="marquee-content"></div>
+            </div>
+         </div>
+         <section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">ЧАСТЫЕ ВОПРОСЫ</h2>
+        
+        <div class="faq-list">
+            <!-- Вопрос 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>У вас есть доставка?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, в Umbrella мы осуществляем доставку, для этого вам нужно выбрать позиции из нашего меню и заполнить окно доставки.</p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Вы работаете только онлайн?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Не только , у нас есть уютная кофейня по адресу Алферова 2 и Коркмасова 18</p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Какие способы оплаты?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Мы принимаем наличные, банковские карты (Visa, Mastercard, МИР), а также оплату через Apple Pay и Google Pay.</p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Можно ли забронировать столик?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Да, вы можете забронировать столик через наше приложение или по телефону кофейни. Бронирование доступно за 2 часа до посещения.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+        <footer class="footer animate-footer">
+            <div class="container footer__container">
+                <div class="footer__col">
+                    <h4>КТО МЫ?</h4>
+                    <ul>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Новости</a></li>
+                        <li><a href="#">Сертификаты</a></li>
+                        <li><a href="#">Пресса</a></li>
+                        <li><a href="#">Карьера</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>ПОМОЩЬ</h4>
+                    <ul>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">Реквизиты</a></li>
+                        <li><a href="#">Политика</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>СЕРВИС</h4>
+                    <ul>
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="#">Доставка</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Скидка 10% за подписку</h4>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="E-mail">
+                        <button type="submit" class="btn">Подписаться</button>
+                    </form>
+                    <p class="terms">Условия акции</p>
+                </div>
+            </div>
+        </footer>
+<div class="modal" id="loginModal">
+    <div class="modal__content animate-modal">
+        <button class="modal__close">×</button>
+        <div class="prod-inner auth-top">
+            <h2>ВОЙТИ</h2>
+            <h3 class="logo logo-auth">Umbrella <span style="color: var(--primary-color);">Coffee</span></h3>
+        </div>
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="email">Через почту</button>
+            <button class="auth-tab" data-tab="phone">Через телефон</button>
+        </div>
+        <form class="login-form" id="loginForm">
+            <div class="input-group email-field">
+                <input type="email" id="loginEmail" name="loginEmail" placeholder="Электронная почта" required>
+                <div class="error-message" id="loginEmailError"></div>
+            </div>
+            <div class="input-group phone-field" style="display: none;">
+                <input type="tel" id="loginPhone" name="loginPhone" placeholder="8(XXX)XXX-XX-XX" maxlength="14">
+                <div class="error-message" id="loginPhoneError"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Пароль" required>
+                <div class="error-message" id="loginPasswordError"></div>
+            </div>
+            <button type="submit" class="btn-auth">ВОЙТИ</button>
+        </form>
+        <p class="forgot-password">Забыли пароль?</p>
+        <button class="btn btn--secondary register-btn">РЕГИСТРАЦИЯ</button>
+    </div>
+</div>
+
+<div class="modal" id="registerModal">
+    <div class="modal__content animate-modal">
+        <button class="modal__close">×</button>
+        <div class="prod-inner auth-top">
+            <h2>РЕГИСТРАЦИЯ</h2>
+            <h3 class="logo logo-auth">Umbrella <span style="color: var(--primary-color);">Coffee</span></h3>
+        </div>
+        <form class="register-form" id="registerForm">
+            <div class="input-group">
+                <input type="text" id="registerName" name="registerName" placeholder="Имя" required>
+                <div class="error-message" id="registerNameError"></div>
+            </div>
+            <div class="input-group">
+                <input type="email" id="registerEmail" name="registerEmail" placeholder="Электронная почта" required>
+                <div class="error-message" id="registerEmailError"></div>
+            </div>
+            <div class="input-group">
+                <input type="tel" id="registerPhone" name="registerPhone" placeholder="8(XXX)XXX-XX-XX" maxlength="14" required>
+                <div class="error-message" id="registerPhoneError"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" id="registerPassword" name="registerPassword" placeholder="Придумайте пароль" required>
+                <div class="error-message" id="registerPasswordError"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" id="registerConfirmPassword" name="registerConfirmPassword" placeholder="Подтвердите пароль" required>
+                <div class="error-message" id="registerConfirmPasswordError"></div>
+            </div>
+            <button type="submit" class="btn-auth">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        </form>
+    </div>
+</div>
+
+    <div class="cart-preview animate-cart" id="cartPreview" style="display: none;">
+        <button class="cart-preview__close">×</button>
+        <div class="cart-preview__content">
+            <h3>Ваша корзина</h3>
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span class="total-price">0 ₽</span>
+            </div>
+            <button class="btn btn--checkout">Оформить заказ</button>
+        </div>
+    </div>
+     <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

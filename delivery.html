@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Доставка | Umbrella Coffee</title>
+    <style>
+        :root {
+            --primary-color: #FFD21D;
+            --bg-color: #181818;
+            --text-color: #fff;
+            --light-bg: #f8f8f8;
+            --dark-text: #333;
+            --section-bg: #222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .delivery-section {
+            padding: 80px 0;
+            background-color: var(--section-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+        }
+
+        .section-subtitle {
+            color: #aaa;
+            font-size: 18px;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .form-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #444;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #333;
+            color: white;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 210, 29, 0.2);
+        }
+
+        .invalid-feedback {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #ffc800;
+            transform: translateY(-2px);
+        }
+
+        .reservation-form, .delivery-form {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: -400px;
+            background-color: #181818;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-width: 350px;
+            border-left: 4px solid #FFD21D;
+        }
+
+        .notification.show {
+            right: 20px;
+        }
+
+        .notification-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #FFD21D;
+        }
+
+        .notification-content h4 {
+            margin-bottom: 5px;
+            color: #FFD21D;
+        }
+
+        .notification-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #eee;
+        }
+
+        .cart-summary {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cart-summary h3 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item .item-info {
+            flex-grow: 1;
+            text-align: left;
+            margin-right: 10px;
+        }
+
+        .cart-item .item-info .item-name {
+            font-size: 16px;
+        }
+
+        .cart-item .item-info .item-delivery {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .cart-item .item-quantity {
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .cart-item .item-price {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-top: 2px solid #444;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+            .form-container {
+                flex-direction: column;
+            }
+            .cart-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cart-item .item-info {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .notification {
+                max-width: calc(100% - 40px);
+            }
+            .delivery-section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="/" class="logo">UMBRELLA</a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link active">ГЛАВНАЯ</a></li>
+                    <li class="nav__item has-dropdown">
+                        <a href="catalog.html" class="nav__link">МЕНЮ</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="catalog.html#coffee">Кофе</a></li>
+                            <li><a href="catalog.html#tea">Чай</a></li>
+                            <li><a href="catalog.html#desserts">Десерты</a></li>
+                            <li><a href="catalog.html#breakfasts">Завтраки</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="delivery.html" class="nav__link">ДОСТАВКА</a></li>
+                </ul>
+                
+                <div class="mobile-actions">
+                    <button class="search-btn mobile-search">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="login-btn mobile-login">ВОЙТИ</button>
+                </div>
+            </nav>
+            
+            <div class="desktop-actions">
+                <button class="search-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <button class="login-btn">ВОЙТИ</button>
+                
+                <button class="burger" aria-label="Menu">
+                    <span class="burger__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <section class="delivery-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">Доставка по Каспийску и Махачкале</h1>
+                <p class="section-subtitle">Закажите любимый кофе и десерты с доставкой или забронируйте столик</p>
+            </div>
+
+            <div class="cart-summary" id="cartSummary">
+                <h3>Ваш заказ</h3>
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span id="totalPrice">0 ₽</span>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <div class="form-column">
+                    <div class="delivery-form">
+                        <h2 class="form-header">Доставка</h2>
+                        <p class="form-note">Заполните форму для осуществления доставки</p>
+                        <form id="deliveryForm">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Телефон *</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="+7(9__)___-__-__" required>
+                                <div class="invalid-feedback" id="phoneError">Введите корректный номер телефона (+7(9XX)XXX-XX-XX)</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Имя *</label>
+                                <input type="text" class="form-control" id="name" required>
+                                <div class="invalid-feedback" id="nameError">Пожалуйста, введите ваше имя</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="form-label">Адрес доставки *</label>
+                                <input type="text" class="form-control" id="address" required>
+                                <div class="invalid-feedback" id="addressError">Пожалуйста, введите адрес доставки</div>
+                            </div>
+                            <button type="submit" class="btn">Оформить доставку</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="form-column">
+                    <div class="reservation-form">
+                        <h2 class="form-header">Или забронируйте столик</h2>
+                        <p class="form-note">Забронируйте столик к вашему приходу</p>
+                        <form id="reservationForm">
+                            <div class="form-group">
+                                <label for="reserveName" class="form-label">Имя *</label>
+                                <input type="text" class="form-control" id="reserveName" required>
+                                <div class="invalid-feedback" id="reserveNameError">Пожалуйста, введите ваше имя</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="persons" class="form-label">Количество персон *</label>
+                                <select class="form-control" id="persons" required>
+                                    <option value="" disabled selected>Выберите количество</option>
+                                    <option value="1">1 персона</option>
+                                    <option value="2">2 персоны</option>
+                                    <option value="3">3 персоны</option>
+                                    <option value="4">4 персоны</option>
+                                    <option value="5">5 персон</option>
+                                    <option value="6">6 персон</option>
+                                </select>
+                                <div class="invalid-feedback" id="personsError">Пожалуйста, выберите количество персон</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="reserveDate" class="form-label">Дата *</label>
+                                <input type="date" class="form-control" id="reserveDate" required>
+                                <div class="invalid-feedback" id="dateError">Пожалуйста, выберите корректную дату</div>
+                                <div class="form-note">Бронирование доступно на 7 дней вперед, кроме субботы и воскресенья</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="reserveTime" class="form-label">Время *</label>
+                                <input type="time" class="form-control" id="reserveTime" min="10:00" max="21:00" required>
+                                <div class="invalid-feedback" id="timeError">Пожалуйста, выберите время с 10:00 до 21:00</div>
+                            </div>
+                            <button type="submit" class="btn">Забронировать столик</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer animate-footer">
+        <div class="container footer__container">
+            <div class="footer__col">
+                <h4>КТО МЫ?</h4>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Сертификаты</a></li>
+                    <li><a href="#">Пресса</a></li>
+                    <li><a href="#">Карьера</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>ПОМОЩЬ</h4>
+                <ul>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Реквизиты</a></li>
+                    <li><a href="#">Политика</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <div class="footer__col">
+                    <h4>СЕРВИС</h4>
+                    <ul>
+                        <li><a href="#">Оплата</a></li>
+                        <li><a href="#">Доставка</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4>Скидка 10% за подписку</h4>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="E-mail">
+                    <button type="submit" class="btn">Подписаться</button>
+                </form>
+                <p class="terms">Условия акции</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="loginModal">
+        <div class="modal__content animate-modal">
+            <button class="modal__close">×</button>
+            <div class="prod-inner auth-top">
+                <h2>ВОЙТИ</h2>
+                <h3 class="logo logo-auth">Umbrella <span style="color: #000;">Coffee</span></h3>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="email">Через почту</button>
+                <button class="auth-tab g2" data-tab="phone">Через телефон</button>
+            </div>
+            <form class="login-form">
+                <input type="email" placeholder="Электронная почта" required>
+                <input type="password" placeholder="Пароль" required>
+                <button type="submit" class="btn-auth">ВОЙТИ</button>
+            </form>
+            <p class="forgot-password">Забыли пароль?</p>
+            <button class="btn btn--secondary register-btn">РЕГИСТРАЦИЯ</button>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal__content animate-modal">
+            <button class="modal__close">×</button>
+            <div class="prod-inner auth-top">
+                <h2>Регистрация</h2>
+                <h3 class="logo logo-auth">Umbrella <span style="color: #000;">Coffee</span></h3>
+            </div>
+            <form class="register-form" style="margin-bottom: 170px;">
+                <input type="email" placeholder="Электронная почта" required>
+                <input type="password" placeholder="Придумайте пароль" required style="margin-bottom: 30px;">
+                <button type="submit" class="btn-auth">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-preview animate-cart" id="cartPreview" style="display: none;">
+        <button class="cart-preview__close">×</button>
+        <div class="cart-preview__content">
+            <h3>Ваша корзина</h3>
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span class="total-price">0 ₽</span>
+            </div>
+            <button class="btn btn--checkout">Оформить заказ</button>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Cart is defined before proceeding
+            if (typeof Cart === 'undefined') {
+                console.error('Cart class is not defined. Ensure cart.js is loaded correctly.');
+                return;
+            }
+
+            const cart = new Cart();
+            cart.loadCart();
+            const cartItemsContainer = document.getElementById('cartItems');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const cartSummary = document.getElementById('cartSummary');
+
+            function displayCartItems() {
+                const items = cart.getItems();
+                cartItemsContainer.innerHTML = '';
+
+                if (items.length === 0) {
+                    cartSummary.style.display = 'none';
+                    return;
+                }
+
+                cartSummary.style.display = 'block';
+                let total = 0;
+
+                items.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="item-info">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-delivery">${item.delivery === 'takeaway' ? 'С СОБОЙ' : 'ДОСТАВКА'}</div>
+                        </div>
+                        <span class="item-quantity">x${item.quantity}</span>
+                        <span class="item-price">${(item.price * item.quantity).toFixed(2)} ₽</span>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                    total += item.price * item.quantity;
+                });
+
+                totalPriceElement.textContent = `${total.toFixed(2)} ₽`;
+            }
+
+            displayCartItems();
+
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function(e) {
+                const value = e.target.value.replace(/\D/g, '');
+                let formattedValue = '';
+
+                if (value.length > 0) {
+                    formattedValue = '+7(' + value.substring(1, 4);
+                }
+                if (value.length >= 4) {
+                    formattedValue += ')' + value.substring(4, 7);
+                }
+                if (value.length >= 7) {
+                    formattedValue += '-' + value.substring(7, 9);
+                }
+                if (value.length >= 9) {
+                    formattedValue += '-' + value.substring(9, 11);
+                }
+
+                e.target.value = formattedValue;
+            });
+
+            function showNotification(title, message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.innerHTML = `
+                    <div class="notification-icon">✓</div>
+                    <div class="notification-content">
+                        <h4>${title}</h4>
+                        <p>${message}</p>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.classList.add('show'), 100);
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 500);
+                }, 5000);
+            }
+
+            const deliveryForm = document.getElementById('deliveryForm');
+            deliveryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+
+                const phoneRegex = /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
+                if (!phoneRegex.test(phoneInput.value)) {
+                    document.getElementById('phoneError').style.display = 'block';
+                    phoneInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('phoneError').style.display = 'none';
+                    phoneInput.classList.remove('is-invalid');
+                }
+
+                const nameInput = document.getElementById('name');
+                if (nameInput.value.trim() === '') {
+                    document.getElementById('nameError').style.display = 'block';
+                    nameInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('nameError').style.display = 'none';
+                    nameInput.classList.remove('is-invalid');
+                }
+
+                const addressInput = document.getElementById('address');
+                if (addressInput.value.trim() === '') {
+                    document.getElementById('addressError').style.display = 'block';
+                    addressInput.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('addressError').style.display = 'none';
+                    addressInput.classList.remove('is-invalid');
+                }
+
+                if (isValid) {
+                    showNotification(
+                        'Доставка оформлена!', 
+                        'Мы свяжемся с вами в ближайшее время для подтверждения заказа.'
+                    );
+                    deliveryForm.reset();
+                    cart.items = [];
+                    cart.saveCart();
+                    cart.updateCartCounter();
+                    displayCartItems();
+                }
+            });
+
+            const reservationForm = document.getElementById('reservationForm');
+            reservationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+
+                const reserveName = document.getElementById('reserveName');
+                if (reserveName.value.trim() === '') {
+                    document.getElementById('reserveNameError').style.display = 'block';
+                    reserveName.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('reserveNameError').style.display = 'none';
+                    reserveName.classList.remove('is-invalid');
+                }
+
+                const persons = document.getElementById('persons');
+                if (persons.value === '' || persons.value === null) {
+                    document.getElementById('personsError').style.display = 'block';
+                    persons.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    document.getElementById('personsError').style.display = 'none';
+                    persons.classList.remove('is-invalid');
+                }
+
+                const reserveDate = document.getElementById('reserveDate');
+                const dateError = document.getElementById('dateError');
+                if (!reserveDate.value) {
+                    dateError.style.display = 'block';
+                    reserveDate.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    const selectedDate = new Date(reserveDate.value);
+                    const today = new Date();
+                    const maxDate = new Date();
+                    maxDate.setDate(today.getDate() + 7);
+                    if (selectedDate < today || 
+                        selectedDate > maxDate || 
+                        selectedDate.getDay() === 0 || 
+                        selectedDate.getDay() === 6) {
+                        dateError.textContent = 'Бронирование доступно на 7 дней вперед, кроме выходных';
+                        dateError.style.display = 'block';
+                        reserveDate.classList.add('is-invalid');
+                        isValid = false;
+                    } else {
+                        dateError.style.display = 'none';
+                        reserveDate.classList.remove('is-invalid');
+                    }
+                }
+
+                const reserveTime = document.getElementById('reserveTime');
+                const timeError = document.getElementById('timeError');
+                if (!reserveTime.value) {
+                    timeError.style.display = 'block';
+                    reserveTime.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    const time = reserveTime.value.split(':');
+                    const hours = parseInt(time[0]);
+                    if (hours < 10 || hours >= 21) {
+                        timeError.style.display = 'block';
+                        reserveTime.classList.add('is-invalid');
+                        isValid = false;
+                    } else {
+                        timeError.style.display = 'none';
+                        reserveTime.classList.remove('is-invalid');
+                    }
+                }
+
+                if (isValid) {
+                    showNotification(
+                        'Столик забронирован!', 
+                        'Ждём вас в указанное время. Приятного аппетита!'
+                    );
+                    reservationForm.reset();
+                }
+            });
+
+            const today = new Date();
+            const maxDate = new Date();
+            maxDate.setDate(today.getDate() + 7);
+            const reserveDate = document.getElementById('reserveDate');
+            reserveDate.min = today.toISOString().split('T')[0];
+            reserveDate.max = maxDate.toISOString().split('T')[0];
+            reserveDate.addEventListener('input', function() {
+                const selectedDate = new Date(this.value);
+                if (selectedDate.getDay() === 0 || selectedDate.getDay() === 6) {
+                    this.value = '';
+                    document.getElementById('dateError').textContent = 'Бронирование в выходные дни недоступно';
+                    document.getElementById('dateError').style.display = 'block';
+                    this.classList.add('is-invalid');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
